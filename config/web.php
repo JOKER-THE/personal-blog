@@ -95,6 +95,15 @@ return [
         ],
 
         /**
+         * Auth component
+         */
+        'user' => [
+            'identityClass' => \application\services\IdentityService::class,
+            'enableAutoLogin' => true,
+            'loginUrl'=>['/auth/login']
+        ],
+
+        /**
          * View's component
          */
         'view' => [
