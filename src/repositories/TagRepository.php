@@ -36,6 +36,31 @@ class TagRepository extends ActiveRecord
     }
 
     /**
+     * Rules
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            [['tag'], 'required']
+        ];
+    }
+
+    /**
+     * Get attribute
+     *
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'tag' => 'Tag'
+        ];
+    }
+
+    /**
      * Get table `{{%blog_tag%}}`
      *
      * @return \yii\db\ActiveQuery
