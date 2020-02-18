@@ -1,53 +1,65 @@
 <?php
 
 /**
- * Service
+ * Entity
  * php version 7.2.22
  *
- * @category Service
- * @package  Service_Folder
+ * @category Entity
+ * @package  Entity_Folder
  * @author   Pavel Rodionov aka JOKER-THE <pavel11_06@mail.ru>
  * @license  https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link     https://localhost
  */
-namespace application\services;
+namespace application\entities;
 
-use application\repositories\ProjectRepository;
+use application\repositories\TagRepository;
 
 /**
- * ProjectService
+ * Category entity
  *
  * @category Application
- * @package  Service_Folder
+ * @package  Entity_Folder
  * @author   Pavel Rodionov aka JOKER-THE <pavel11_06@mail.ru>
  * @license  https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link     https://localhost
+ *
+ * @property string $tag
  */
-class ProjectService
+class Category
 {
     /**
-     * Object of ProjectRepository
+     * Object of TagRepository
      *
      * @var object $repository
      */
-    protected $repository;
+    public $repository;
 
     /**
-     * Create object ProjectRepository
+     * Array of categories
+     *
+     * @var array $categories
      */
-    public function __construct()
+    public $categories = [];
+
+    /**
+     * Get categories
+     *
+     * @param integer $id tag's unique ID
+     */
+    public function __construct($id = '')
     {
-        $this->repository = new ProjectRepository();
+        $this->repository = new TagRepository();
+        $this->categories = $this->_get($id);
     }
 
     /**
-     * Get projects in database
+     * Get categories in repositories
      *
-     * @param integer $id project's unique ID
+     * @param integer $id tag's unique ID
      *
      * @return object
      */
-    public function get($id = '')
+    private function _get($id = '')
     {
         if (empty($id)) {
             return $this->repository->find()->all();

@@ -14,6 +14,9 @@ namespace application\controllers;
 
 use yii\web\Controller;
 use application\entities\Project;
+use application\entities\Category;
+use application\entities\blog\Blog;
+use application\entities\blog\Tag;
 
 /**
  * BaseController in project
@@ -43,6 +46,67 @@ class BaseController extends Controller
         $this->layout = '@application/views/layouts/index.layout.php';
         
         return $this->render('index');
+    }
+
+    /**
+     * Display blog-page
+     *
+     * @return string
+     */
+    public function actionBlog()
+    {
+        $model = new Blog();
+        $categories = new Category();
+
+        return $this->render(
+            'blog',
+            [
+                'model' => $model,
+                'categories' => $categories
+            ]
+        );
+    }
+
+    /**
+     * Display search blog for tag
+     *
+     * @param string $tag searched tag
+     *
+     * @return string
+     */
+    public function actionSearch($tag)
+    {
+        $model = new Tag($tag);
+        $categories = new Category();
+
+        return $this->render(
+            'blog',
+            [
+               'model' => $model,
+               'categories' => $categories
+            ]
+        );
+    }
+
+    /**
+     * View blog-item
+     *
+     * @param integer $id blog's unique ID
+     *
+     * @return string
+     */
+    public function actionView($id)
+    {
+        $model = new Blog($id);
+        $categories = new Category();
+
+        return $this->render(
+            'view',
+            [
+                'model' => $model,
+                'categories' => $categories
+            ]
+        );
     }
 
     /**

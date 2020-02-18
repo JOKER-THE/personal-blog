@@ -18,7 +18,7 @@ use application\services\ProjectService;
  * Project entity
  *
  * @category Application
- * @package  Controller_Folder
+ * @package  Entity_Folder
  * @author   Pavel Rodionov aka JOKER-THE <pavel11_06@mail.ru>
  * @license  https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link     https://localhost
