@@ -37,6 +37,41 @@ AppAsset::register($this);
 
 <div class="wrap">
 
+    <?php if (!Yii::$app->user->isGuest) : ?>
+        <?php
+        NavBar::begin(
+            [
+                'brandLabel' => 'PHP: Блок администратора',
+                'options' => [
+                    'class' => 'navbar navbar-expand-lg
+                    navbar-dark bg-dark navbar-fixed-top',
+                ],
+            ]
+        );
+        echo Nav::widget(
+            [
+                'options' => ['class' => 'navbar-nav'],
+                'items' => [
+                    ['label' => 'Блог', 'url' => ['/blog']],
+                    ['label' => 'Категории', 'url' => ['/category']],
+                    ['label' => 'Проекты', 'url' => ['/project']],
+                    (
+                        '<li>'
+                        . Html::beginForm(['/auth/logout'], 'post')
+                        . Html::submitButton(
+                            'Выйти из системы',
+                            ['class' => 'btn btn-light']
+                        )
+                        . Html::endForm()
+                        . '</li>'
+                    )
+                ]
+            ]
+        );
+        NavBar::end();
+        ?>
+    <?php endif; ?>
+
     <?php
     NavBar::begin(
         [
