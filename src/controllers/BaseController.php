@@ -13,6 +13,7 @@
 namespace application\controllers;
 
 use yii\web\Controller;
+use application\entities\Project;
 
 /**
  * BaseController in project
@@ -52,5 +53,22 @@ class BaseController extends Controller
     public function actionResume()
     {
         return $this->render('resume');
+    }
+
+    /**
+     * Display page with my portfolio
+     *
+     * @return string
+     */
+    public function actionPortfolio()
+    {
+        $model = new Project();
+
+        return $this->render(
+            'portfolio',
+            [
+                'model' => $model
+            ]
+        );
     }
 }
