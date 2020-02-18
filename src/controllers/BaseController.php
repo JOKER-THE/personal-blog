@@ -26,6 +26,13 @@ use yii\web\Controller;
 class BaseController extends Controller
 {
     /**
+     * Page layout
+     *
+     * @var string $layout url to layout
+     */
+    public $layout = '@application/views/layouts/page.layout.php';
+
+    /**
      * Display main-page
      *
      * @return string
@@ -35,5 +42,15 @@ class BaseController extends Controller
         $this->layout = '@application/views/layouts/index.layout.php';
         
         return $this->render('index');
+    }
+
+    /**
+     * Display page with resume
+     *
+     * @return string
+     */
+    public function actionResume()
+    {
+        return $this->render('resume');
     }
 }
