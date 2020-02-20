@@ -144,4 +144,21 @@ class ProjectController extends Controller
             ]
         );
     }
+
+    /**
+     * Deletes an existing Project
+     * If deletion is successful, the browser will be redirected to the 'index' page
+     *
+     * @param integer $id unique project Id
+     *
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionDelete($id)
+    {
+        $model = new Project($id);
+        $model->delete($id);
+        
+        return $this->redirect(['index']);
+    }
 }

@@ -72,4 +72,17 @@ class ProjectService
         $this->repository->description = $project->description;
         $this->repository->save();
     }
+
+    /**
+     * Delete project
+     *
+     * @param integer $id unique project's id
+     *
+     * @return void
+     */
+    public function delete($id)
+    {
+        $model = $this->repository->findOne($id);
+        $model->delete($id);
+    }
 }

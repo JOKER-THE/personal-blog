@@ -151,4 +151,16 @@ class Project extends \yii\base\Model
         $this->image = $this->imgServ->upload($file, 'project');
         $this->service->save($this);
     }
+
+    /**
+     * Delete project
+     *
+     * @param integer $id unique project's id
+     *
+     * @return void
+     */
+    public function delete($id)
+    {
+        $this->service->delete($id);
+    }
 }
