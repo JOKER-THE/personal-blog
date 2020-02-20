@@ -144,4 +144,21 @@ class BlogController extends Controller
             ]
         );
     }
+
+    /**
+     * Deletes an existing Blog
+     * If deletion is successful, the browser will be redirected to the 'index' page
+     *
+     * @param integer $id unique blog Id
+     *
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionDelete($id)
+    {
+        $model = new Blog($id);
+        $model->delete($id);
+        
+        return $this->redirect(['index']);
+    }
 }

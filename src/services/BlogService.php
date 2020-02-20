@@ -148,7 +148,7 @@ class BlogService
     /**
      * Save blog
      *
-     * @param object $blog project
+     * @param object $blog blog
      *
      * @return void
      */
@@ -159,5 +159,18 @@ class BlogService
         $this->repository->description = $blog->description;
         $this->repository->text = $blog->text;
         $this->repository->save();
+    }
+
+    /**
+     * Delete blog
+     *
+     * @param integer $id unique blog's id
+     *
+     * @return void
+     */
+    public function delete($id)
+    {
+        $model = $this->repository->findOne($id);
+        $model->delete($id);
     }
 }

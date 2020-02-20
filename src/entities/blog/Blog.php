@@ -145,7 +145,7 @@ class Blog extends \yii\base\Model
     }
 
     /**
-     * Save project
+     * Save blog
      *
      * @return void
      */
@@ -154,5 +154,17 @@ class Blog extends \yii\base\Model
         $file = UploadedFile::getInstance($this, 'file');
         $this->image = $this->imgServ->upload($file, 'blog/title');
         $this->service->save($this);
+    }
+
+    /**
+     * Delete blog
+     *
+     * @param integer $id unique blog's id
+     *
+     * @return void
+     */
+    public function delete($id)
+    {
+        $this->service->delete($id);
     }
 }
