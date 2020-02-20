@@ -146,6 +146,34 @@ class ProjectController extends Controller
     }
 
     /**
+     * Updates an existing Project
+     * If update is successful, the browser will be redirected to the 'view' page
+     *
+     * @param integer $id unique project Id
+     *
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionUpdate($id)
+    {
+        $model = new Project($id);
+        $project = $model->project;
+        $data = Yii::$app->request->post();
+
+        if (!empty($data)) {
+            $model->update($id, $data, $project);
+            return $this->redirect(['view', 'id' => $id]);
+        }
+
+        return $this->render(
+            'update',
+            [
+                'model' => $model,
+            ]
+        );
+    }
+
+    /**
      * Deletes an existing Project
      * If deletion is successful, the browser will be redirected to the 'index' page
      *

@@ -74,6 +74,30 @@ class ProjectService
     }
 
     /**
+     * Update project
+     *
+     * @param integer $id      project unique ID
+     * @param array   $data    project attributes
+     * @param object  $project project
+     *
+     * @return void
+     */
+    public function update($id, $data, $project)
+    {
+        $data = $data["ProjectRepository"];
+
+        $model = $this->repository->findOne($id);
+        $model->name = $data["name"] ?? $project->name;
+        $model->git = $data["git"] ?? $project->git;
+        $model->url = $data["url"] ?? $project->url;
+        $model->image = $data["image"] ?? $project->image;
+        $model->description = $data["description"]
+            ?? $project->description;
+
+        $model->save();
+    }
+
+    /**
      * Delete project
      *
      * @param integer $id unique project's id

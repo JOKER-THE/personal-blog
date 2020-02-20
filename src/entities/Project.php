@@ -153,6 +153,29 @@ class Project extends \yii\base\Model
     }
 
     /**
+     * Update project
+     *
+     * @param integer $id      project unique ID
+     * @param array   $data    project attributes
+     * @param object  $project project
+     *
+     * @return void
+     */
+    public function update($id, $data, $project)
+    {
+        $file = UploadedFile::getInstance($project, 'file');
+
+        if (!empty($file)) {
+            $data["ProjectRepository"]["image"] = $this->imgServ->upload(
+                $file,
+                'project'
+            );
+        }
+
+        $this->service->update($id, $data, $project);
+    }
+
+    /**
      * Delete project
      *
      * @param integer $id unique project's id

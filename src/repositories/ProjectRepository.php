@@ -26,6 +26,13 @@ use yii\db\ActiveRecord;
 class ProjectRepository extends ActiveRecord
 {
     /**
+     * Project's image
+     *
+     * @var UploadedFile|Null file attribute
+     */
+    public $file;
+
+    /**
      * Get tablename
      *
      * @return string
