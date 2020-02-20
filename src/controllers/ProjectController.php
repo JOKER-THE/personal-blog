@@ -121,4 +121,27 @@ class ProjectController extends Controller
             ]
         );
     }
+
+    /**
+     * Creates a new Project
+     * If creation is successful, the browser will be redirected to the 'index' page.
+     *
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new Project();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save();
+            return $this->redirect(['index']);
+        }
+
+        return $this->render(
+            'create',
+            [
+                'model' => $model,
+            ]
+        );
+    }
 }

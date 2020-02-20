@@ -13,6 +13,8 @@
 namespace application\entities;
 
 use application\services\ProjectService;
+use application\services\ImageService;
+use yii\web\UploadedFile;
 
 /**
  * Project entity
@@ -29,7 +31,7 @@ use application\services\ProjectService;
  * @property string $image
  * @property string $description
  */
-class Project
+class Project extends \yii\base\Model
 {
     /**
      * Object of ProjectService
@@ -39,11 +41,60 @@ class Project
     protected $service;
 
     /**
+     * Object of ImageService
+     *
+     * @var object $image
+     */
+    protected $imgServ;
+
+    /**
      * Concrete project
      *
      * @var object $project
      */
     public $project;
+
+    /**
+     * Project's name
+     *
+     * @var string $name
+     */
+    public $name;
+
+    /**
+     * Project's url
+     *
+     * @var string $url
+     */
+    public $url;
+
+    /**
+     * Project's git
+     *
+     * @var string $git
+     */
+    public $git;
+
+    /**
+     * Project's description
+     *
+     * @var string $description
+     */
+    public $description;
+
+    /**
+     * Project's image
+     *
+     * @var string $image
+     */
+    public $image;
+
+    /**
+     * Project's image
+     *
+     * @var UploadedFile|Null file attribute
+     */
+    public $file;
 
     /**
      * Get projects
@@ -53,6 +104,51 @@ class Project
     public function __construct($id = '')
     {
         $this->service = new ProjectService();
+        $this->imgServ = new ImageService();
         $this->project = $this->service->get($id);
+    }
+
+    /**
+     * Rules
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            [['name', 'description'], 'required'],
+            [['url', 'git', 'image'], 'string'],
+            [['file'], 'file', 'extensions' => 'png, jpg']
+        ];
+    }
+
+    /**
+     * Get attribute
+     *
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'name' => 'Name',
+            'url' => 'URL',
+            'git' => 'Github',
+            'image' => 'Image',
+            'file' => 'Image',
+            'description' => 'Description'
+        ];
+    }
+
+    /**
+     * Save project
+     *
+     * @return void
+     */
+    public function save()
+    {
+        $file = UploadedFile::getInstance($this, 'file');
+        $this->image = $this->imgServ->upload($file, 'project');
+        $this->service->save($this);
     }
 }

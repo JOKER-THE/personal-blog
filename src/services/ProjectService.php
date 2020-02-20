@@ -55,4 +55,21 @@ class ProjectService
             return $this->repository->find()->where(['id' => $id])->one();
         }
     }
+
+    /**
+     * Save project
+     *
+     * @param object $project project
+     *
+     * @return void
+     */
+    public function save(object $project)
+    {
+        $this->repository->name = $project->name;
+        $this->repository->git = $project->git;
+        $this->repository->url = $project->url;
+        $this->repository->image = $project->image;
+        $this->repository->description = $project->description;
+        $this->repository->save();
+    }
 }
