@@ -13,6 +13,8 @@
 namespace application\entities\blog;
 
 use application\services\BlogService;
+use application\services\ImageService;
+use yii\web\UploadedFile;
 
 /**
  * Blog entity
@@ -31,7 +33,7 @@ use application\services\BlogService;
  * @property integer $created_at
  * @property integer $update_at
  */
-class Blog
+class Blog extends \yii\base\Model
 {
     /**
      * Object of BlogService
@@ -39,6 +41,13 @@ class Blog
      * @var object $service
      */
     protected $service;
+
+    /**
+     * Object of ImageService
+     *
+     * @var object $image
+     */
+    protected $imgServ;
 
     /**
      * Objects of Blogs
@@ -55,6 +64,41 @@ class Blog
     public $pages;
 
     /**
+     * Blog's title
+     *
+     * @var string $title
+     */
+    public $title;
+
+    /**
+     * Blog's description
+     *
+     * @var string $description
+     */
+    public $description;
+
+    /**
+     * Blog's image
+     *
+     * @var string $image
+     */
+    public $image;
+
+    /**
+     * Blog's text
+     *
+     * @var string $text
+     */
+    public $text;
+
+    /**
+     * Blog's image
+     *
+     * @var UploadedFile|Null file attribute
+     */
+    public $file;
+
+    /**
      * Get blogs
      *
      * @param integer $id       blog's unique ID
@@ -63,8 +107,52 @@ class Blog
     public function __construct($id = '', $pageSize = 3)
     {
         $this->service = new BlogService();
+        $this->imgServ = new ImageService();
         $blogs = $this->service->get($id, $pageSize);
         $this->blogs = $blogs->blogs;
         $this->pages = $blogs->pages;
+    }
+
+    /**
+     * Rules
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            [['title', 'description', 'text'], 'required'],
+            [['image'], 'string'],
+            [['file'], 'file', 'extensions' => 'png, jpg']
+        ];
+    }
+
+    /**
+     * Get attribute
+     *
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'title' => 'Title',
+            'text' => 'Text',
+            'image' => 'Image',
+            'file' => 'Image',
+            'description' => 'Description'
+        ];
+    }
+
+    /**
+     * Save project
+     *
+     * @return void
+     */
+    public function save()
+    {
+        $file = UploadedFile::getInstance($this, 'file');
+        $this->image = $this->imgServ->upload($file, 'blog/title');
+        $this->service->save($this);
     }
 }

@@ -13,6 +13,7 @@
 namespace application\repositories;
 
 use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * BlogRepository
@@ -25,6 +26,18 @@ use yii\db\ActiveRecord;
  */
 class BlogRepository extends ActiveRecord
 {
+    /**
+     * Behavior
+     *
+     * @return yii\behavior\TimestampBehavior
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
     /**
      * Get tablename
      *

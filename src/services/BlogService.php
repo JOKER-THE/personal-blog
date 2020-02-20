@@ -144,4 +144,20 @@ class BlogService
 
         return $this;
     }
+
+    /**
+     * Save blog
+     *
+     * @param object $blog project
+     *
+     * @return void
+     */
+    public function save(object $blog)
+    {
+        $this->repository->title = $blog->title;
+        $this->repository->image = $blog->image;
+        $this->repository->description = $blog->description;
+        $this->repository->text = $blog->text;
+        $this->repository->save();
+    }
 }
