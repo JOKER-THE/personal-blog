@@ -27,6 +27,13 @@ use yii\behaviors\TimestampBehavior;
 class BlogRepository extends ActiveRecord
 {
     /**
+     * Blog's image
+     *
+     * @var UploadedFile|Null file attribute
+     */
+    public $file;
+
+    /**
      * Behavior
      *
      * @return yii\behavior\TimestampBehavior

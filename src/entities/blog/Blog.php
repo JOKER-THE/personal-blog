@@ -157,6 +157,29 @@ class Blog extends \yii\base\Model
     }
 
     /**
+     * Update blog
+     *
+     * @param integer $id   blog unique ID
+     * @param array   $data blog attributes
+     * @param object  $blog blog
+     *
+     * @return void
+     */
+    public function update($id, $data, $blog)
+    {
+        $file = UploadedFile::getInstance($blog, 'file');
+
+        if (!empty($file)) {
+            $data["BlogRepository"]["image"] = $this->imgServ->upload(
+                $file,
+                'blog/title'
+            );
+        }
+
+        $this->service->update($id, $data, $blog);
+    }
+
+    /**
      * Delete blog
      *
      * @param integer $id unique blog's id

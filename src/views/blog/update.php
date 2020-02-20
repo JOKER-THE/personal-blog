@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project page
+ * Blog page
  * php version 7.2.22
  *
  * @category View
@@ -12,14 +12,14 @@
  */
 use yii\helpers\Html;
 
-$this->title = 'Обновить проект: ' . $model->project->name;
+$this->title = 'Обновить статью: ' . $model->blogs->title;
 ?>
 <div class="update">
 
     <?php echo $this->render(
         '_form',
         [
-            'model' => $model->project,
+            'model' => $model->blogs,
         ]
     ) ?>
 

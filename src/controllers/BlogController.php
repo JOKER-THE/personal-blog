@@ -146,6 +146,34 @@ class BlogController extends Controller
     }
 
     /**
+     * Updates an existing Blog
+     * If update is successful, the browser will be redirected to the 'view' page
+     *
+     * @param integer $id unique blog Id
+     *
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionUpdate($id)
+    {
+        $model = new Blog($id);
+        $blog = $model->blogs;
+        $data = Yii::$app->request->post();
+
+        if (!empty($data)) {
+            $model->update($id, $data, $blog);
+            return $this->redirect(['view', 'id' => $id]);
+        }
+
+        return $this->render(
+            'update',
+            [
+                'model' => $model,
+            ]
+        );
+    }
+
+    /**
      * Deletes an existing Blog
      * If deletion is successful, the browser will be redirected to the 'index' page
      *

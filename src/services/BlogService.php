@@ -162,6 +162,28 @@ class BlogService
     }
 
     /**
+     * Update blog
+     *
+     * @param integer $id   blog unique ID
+     * @param array   $data blog attributes
+     * @param object  $blog blog
+     *
+     * @return void
+     */
+    public function update($id, $data, $blog)
+    {
+        $data = $data["BlogRepository"];
+
+        $model = $this->repository->findOne($id);
+        $model->title = $data["title"] ?? $blog->title;
+        $model->text = $data["text"] ?? $blog->text;
+        $model->image = $data["image"] ?? $blog->image;
+        $model->description = $data["description"] ?? $blog->description;
+
+        $model->save();
+    }
+
+    /**
      * Delete blog
      *
      * @param integer $id unique blog's id
