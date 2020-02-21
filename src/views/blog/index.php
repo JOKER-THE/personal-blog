@@ -43,6 +43,20 @@ $this->title = 'Блог';
                             return implode(', ', $tags);
                         }
                     ],
+                    [
+                        'label' => 'Button',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return Html::a(
+                                'Редактировать теги',
+                                [
+                                    '/tag',
+                                    'id' => $model->id
+                                ],
+                                ['class' => 'btn btn-outline-dark']
+                            );
+                        }
+                    ],
                     ['class' => 'application\grid\ActionColumn']
                 ]
             ]

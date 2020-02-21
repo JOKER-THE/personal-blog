@@ -36,6 +36,32 @@ class BlogTagRepository extends ActiveRecord
     }
 
     /**
+     * Rules
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            [['tag_id', 'blog_id'], 'required']
+        ];
+    }
+
+    /**
+     * Get attribute
+     *
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'tag_id' => 'Tag',
+            'blog_id' => 'Blog'
+        ];
+    }
+
+    /**
      * Get table `{{%tag%}}`
      *
      * @return \yii\db\ActiveQuery
