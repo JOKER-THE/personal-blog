@@ -39,11 +39,86 @@ $this->title = 'Резюме';
 <section id="technology">
     <p><b>Технологии, которые я использую в работе:</b></p>
     <ul>
-        <li>Backend: PHP</li>
-        <li>Frontend: HTML</li>
-        <li>Окружение: Sublime</li>
-        <li>Операционные системы: Ubuntu</li>
-        <li>Другие технологии: Photoshop</li>
+        <li>Разработка:
+            <div class="row-flex">
+                <div class="technology">
+                    <img src="/img/system/icon/php.png">
+                    <p>PHP-7.2</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/yii.png">
+                    <p>Yii2 Framework</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/laravel.png">
+                    <p>Laravel</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/mysql.png">
+                    <p>MySQL</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/html.png">
+                    <p>HTML-5</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/css.png">
+                    <p>CSS-3</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/bootstrap.png">
+                    <p>Bootstrap-3/4</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/js.png">
+                    <p>Javascript</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/jquery.png">
+                    <p>JQuery</p>
+                </div>
+            </div>
+        </li>
+        <li>Окружение:
+            <div class="row-flex">
+                <div class="technology">
+                    <img src="/img/system/icon/composer.png">
+                    <p>Composer</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/git.png">
+                    <p>Git</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/postman.png">
+                    <p>Postman</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/sublime.png">
+                    <p>Sublime</p>
+                </div>
+            </div>
+        </li>
+        <li>Операционные системы:
+            <div class="row-flex">
+                <div class="technology">
+                    <img src="/img/system/icon/ubuntu.png">
+                    <p>Ubuntu</p>
+                </div>
+                <div class="technology">
+                    <img src="/img/system/icon/windows.png">
+                    <p>Windows</p>
+                </div>
+            </div>
+        </li>
+        <li>Другие технологии:
+            <div class="row-flex">
+                <div class="technology">
+                    <img src="/img/system/icon/photoshop.png">
+                    <p>Photoshop</p>
+                </div>
+            </div>
+        </li>
     </ul>
 </section>
 
