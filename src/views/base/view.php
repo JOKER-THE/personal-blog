@@ -27,7 +27,7 @@ $this->title = $model->blogs->title;
                 <?php endif; ?>
 
                 <h3><?php echo $model->blogs->title ?></h3>
-                <p class="blog-text"><?php echo $model->blogs->text ?></p>
+                <div class="blog-text"><?php echo $model->blogs->text ?></div>
                 <p class="text-right">
                     <?php echo Yii::$app->formatter->asDate(
                         $model->blogs->updated_at,
