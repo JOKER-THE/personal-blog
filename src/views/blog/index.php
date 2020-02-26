@@ -50,7 +50,7 @@ $this->title = 'Блог';
                             return Html::a(
                                 'Редактировать теги',
                                 [
-                                    '/tag',
+                                    'manager/tag',
                                     'id' => $model->id
                                 ],
                                 ['class' => 'btn btn-outline-dark']

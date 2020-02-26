@@ -91,7 +91,26 @@ return [
          */
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'showScriptName' => false
+            'showScriptName' => false,
+            'enableStrictParsing' => true,
+            'rules' => [
+                '' => 'base/index',
+                'blog' => 'base/blog',
+                'blog/view' => 'base/view',
+                'blog/search' => 'base/search',
+                'resume' => 'base/resume',
+                'portfolio' => 'base/portfolio',
+                'auth/<action>' => 'auth/<action>',
+                'manager' => 'auth/login',
+                'manager/blog' => 'blog/index',
+                'manager/category' => 'category/index',
+                'manager/project' => 'project/index',
+                'manager/tag' => 'tag/index',
+                'manager/blog/<action>' => 'blog/<action>',
+                'manager/category/<action>' => 'category/<action>',
+                'manager/project/<action>' => 'project/<action>',
+                'manager/tag/<action>' => 'tag/<action>'
+            ]
         ],
 
         /**

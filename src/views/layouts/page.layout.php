@@ -42,9 +42,10 @@ AppAsset::register($this);
         NavBar::begin(
             [
                 'brandLabel' => 'PHP: Блок администратора',
+                'brandUrl' => ['manager/blog'],
                 'options' => [
                     'class' => 'navbar navbar-expand-lg
-                    navbar-dark bg-dark navbar-fixed-top',
+                    navbar-dark bg-danger navbar-fixed-top',
                 ],
             ]
         );
@@ -52,9 +53,9 @@ AppAsset::register($this);
             [
                 'options' => ['class' => 'navbar-nav'],
                 'items' => [
-                    ['label' => 'Блог', 'url' => ['/blog']],
-                    ['label' => 'Категории', 'url' => ['/category']],
-                    ['label' => 'Проекты', 'url' => ['/project']],
+                    ['label' => 'Блог', 'url' => ['manager/blog']],
+                    ['label' => 'Категории', 'url' => ['manager/category']],
+                    ['label' => 'Проекты', 'url' => ['manager/project']],
                     (
                         '<li>'
                         . Html::beginForm(['/auth/logout'], 'post')
@@ -79,7 +80,7 @@ AppAsset::register($this);
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar navbar-expand-lg
-                navbar-light bg-light navbar-fixed-top'
+                navbar-dark bg-dark navbar-fixed-top'
             ]
         ]
     );
