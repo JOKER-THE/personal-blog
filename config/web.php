@@ -73,6 +73,13 @@ return [
         'db' => $db,
 
         /**
+         * Error page component
+         */
+        'errorHandler' => [
+            'errorAction' => 'base/error',
+        ],
+
+        /**
          * Date Format
          */
         'formatter' => [

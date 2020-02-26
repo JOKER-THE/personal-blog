@@ -37,6 +37,20 @@ class BaseController extends Controller
     public $layout = '@application/views/layouts/page.layout.php';
 
     /**
+     * Display error-page
+     *
+     * @return array
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction'
+            ]
+        ];
+    }
+
+    /**
      * Display main-page
      *
      * @return string
