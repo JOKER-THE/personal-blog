@@ -57,6 +57,7 @@ a:hover {
 .project-img {
 	height: 150px;
 	max-width: 100%;
+	border: 1px solid #d3d3d3 !important;
 }
 .button-pack a{
 	margin-bottom: 10px;
