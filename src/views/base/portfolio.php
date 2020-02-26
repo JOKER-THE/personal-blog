@@ -39,15 +39,17 @@ $this->title = 'Портфолио';
                 <p><strong><?php echo $project->name ?></strong></p>
                 <p><?php echo $project->description ?></p>
 
-                <?php if (!empty($project->url)) : ?>
-                    <a type="button" class="btn btn-outline-dark btn-block"
-                    href="<?php echo $project->url ?>">Перейти</a>
-                <?php endif; ?>
+                <div class="button-block">
+                    <?php if (!empty($project->url)) : ?>
+                        <a type="button" class="btn btn-outline-dark btn-block"
+                        href="<?php echo $project->url ?>">Перейти</a>
+                    <?php endif; ?>
 
-                <?php if (!empty($project->git)) : ?>
-                    <a type="button" class="btn btn-dark btn-block"
-                    href="<?php echo $project->git ?>">Github</a>
-                <?php endif; ?>
+                    <?php if (!empty($project->git)) : ?>
+                        <a type="button" class="btn btn-dark btn-block"
+                        href="<?php echo $project->git ?>">Github</a>
+                    <?php endif; ?>
+                </div>
                 
             </div>
         <?php endforeach; ?>

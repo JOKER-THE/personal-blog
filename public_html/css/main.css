@@ -50,6 +50,9 @@ a:hover {
 	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
   	overflow: hidden;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
 }
 .project-img {
 	height: 150px;
@@ -110,6 +113,9 @@ a:hover {
 .technology p{
 	font-weight: bold;
 	color: #8a8a8a;
+}
+.button-block {
+	min-height: 84px;
 }
 .footer {
     height: 60px;
