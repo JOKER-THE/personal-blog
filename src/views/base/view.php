@@ -20,13 +20,14 @@ $this->title = $model->blogs->title;
     <div class="row">
         <div class="col-md-9">
             <div class="blog">
+                <h2 class="text-center"><?php echo $model->blogs->title ?></h2>
+                <hr>
 
                 <?php if (!empty($model->blogs->image)) : ?>
                     <p><img class="img"
                         src="/img/blog/title/<?php echo $model->blogs->image ?>"></p>
                 <?php endif; ?>
-
-                <h3><?php echo $model->blogs->title ?></h3>
+                <hr>
                 <div class="blog-text"><?php echo $model->blogs->text ?></div>
                 <p class="text-right">
                     <?php echo Yii::$app->formatter->asDate(

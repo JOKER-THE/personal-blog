@@ -26,6 +26,7 @@ $this->title = 'Блог';
                         <p><img class="img"
                             src="/img/blog/title/<?php echo $blog->image ?>"></p>
                     <?php endif; ?>
+                    <hr>
                     <h3>
                     <?php echo Html::a(
                         $blog->title,
