@@ -76,6 +76,10 @@ $this->title = 'Резюме';
                         <p>Laravel</p>
                     </div>
                     <div class="technology">
+                        <img src="/img/system/icon/golang.png">
+                        <p>Golang</p>
+                    </div>
+                    <div class="technology">
                         <img src="/img/system/icon/mysql.png">
                         <p>MySQL</p>
                     </div>
@@ -111,6 +115,10 @@ $this->title = 'Резюме';
                     <div class="technology">
                         <img src="/img/system/icon/git.png">
                         <p>Git</p>
+                    </div>
+                    <div class="technology">
+                        <img src="/img/system/icon/swagger.png">
+                        <p>Swagger</p>
                     </div>
                     <div class="technology">
                         <img src="/img/system/icon/postman.png">
