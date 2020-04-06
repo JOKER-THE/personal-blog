@@ -84,6 +84,10 @@ $this->title = 'Резюме';
                         <p>MySQL</p>
                     </div>
                     <div class="technology">
+                        <img src="/img/system/icon/mongo.png">
+                        <p>MongoDB</p>
+                    </div>
+                    <div class="technology">
                         <img src="/img/system/icon/html.png">
                         <p>HTML-5</p>
                     </div>
@@ -98,6 +102,10 @@ $this->title = 'Резюме';
                     <div class="technology">
                         <img src="/img/system/icon/js.png">
                         <p>Javascript</p>
+                    </div>
+                    <div class="technology">
+                        <img src="/img/system/icon/vue.png">
+                        <p>VueJS</p>
                     </div>
                     <div class="technology">
                         <img src="/img/system/icon/jquery.png">
@@ -119,6 +127,10 @@ $this->title = 'Резюме';
                     <div class="technology">
                         <img src="/img/system/icon/swagger.png">
                         <p>Swagger</p>
+                    </div>
+                    <div class="technology">
+                        <img src="/img/system/icon/docker.png">
+                        <p>Docker</p>
                     </div>
                     <div class="technology">
                         <img src="/img/system/icon/postman.png">
